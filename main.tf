@@ -85,6 +85,12 @@ resource "null_resource" "sts_check" {
   }
 }
 
+resource "null_resource" "pause" {
+  provisioner "local-exec" {
+    command = "sleep 60"
+  }
+}
+
 module operator_roles {
   source = "terraform-redhat/rosa-sts/aws"
   version = "0.0.1"
@@ -95,7 +101,7 @@ module operator_roles {
   operator_roles_properties = data.ocm_rosa_operator_roles.operator_roles.operator_iam_roles
 
   depends_on = [
-    null_resource.sts_check
+    null_resource.pause
   ]
 }
 
