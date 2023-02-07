@@ -28,7 +28,7 @@ variable cluster_id {
 
 variable oidc_endpoint_url {
     type = string
-    default = "rh-oidc.s3.us-east-1.amazonaws.com/21nm1p5liibh03fkcu04kup33d2jtv9b"
+    default = ""
 }
 
 variable oidc_thumbprint {
